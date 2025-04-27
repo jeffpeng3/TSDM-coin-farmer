@@ -22,8 +22,8 @@ jobs:
       - name: Install dependencies
         run: |
           pip install requests
-        env:
-          COOKIES: ${{ secrets.COOKIES }}
 
       - name: Run SCF_sign.py
         run: python dist/SCF_sign.py
+        env:
+          COOKIES: ${{ secrets.COOKIES }}
