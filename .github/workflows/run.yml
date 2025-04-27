@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   schedule:
     # 每天的 UTC 时间 00:00 运行
-    - cron: '1 0 * * *'
+    - cron: '1 30 * * *'
 
 jobs:
   run-script:
