@@ -8,7 +8,7 @@ cookies.json的例子见 https://github.com/Trojblue/TSDM-coin-farmer/blob/main/
 """
 
 from datetime import datetime
-import random, requests, time, json
+import random, requests, time, json, os
 
 
 # ======== CONSTANT ========
@@ -27,15 +27,9 @@ def get_cookies_all():
     """从文件读取所有cookies
     { username: [cookie_list] }
     """
-    try:
-        with open('cookies.json', 'r', encoding='utf-8') as json_file:
-            data = json.load(json_file)
-            return data
-
-    except FileNotFoundError:  # 文件不存在
-        print("cookies.json不存在")
-        return {}
-
+    os.getenv("COOKIES", "{}")
+    data = json.loads(os.getenv("COOKIES", "{}"))
+    return data
 
 def get_cookies_by_domain(domain:str):
     """从所有cookie里分离出指定域名的cookie
