@@ -116,5 +116,5 @@ def sign_multi_post():
     print("POST方式: 全部签到完成")
     return
 
-def main_handler(event, context):
-    sign_multi_post()
+
+sign_multi_post()
